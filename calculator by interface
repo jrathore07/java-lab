@@ -1,0 +1,30 @@
+//creat an interface calculater
+ interface calculator{
+    public void add(int a,int b);
+    public void substract(int a,int b);
+    public void multiplication(int a,int b);
+    public void divide(int a,int b);
+}
+public class A implements calculator{
+    public void add(int a,int b){
+       System.out.println(a+b);
+    }
+
+public void substract(int a,int b){
+    System.out.println(a-b);
+}
+public void multiplication(int a,int b){
+    System.out.println(a*b);
+}
+public void divide(int a,int b){
+    System.out.println(a/b);
+}
+
+	public static void main(String[] args) {
+		A a=new A();
+		a.add(4,5);
+		a.substract(4,6);
+		a.multiplication(3,6);
+		a.divide(6,3);
+	}
+}
