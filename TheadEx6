@@ -1,0 +1,22 @@
+class Threadcount extends Thread{
+    Threadcount(string s){
+        super(s);
+        system.out.println("New thread created "+this);
+        start();
+    
+    }
+    public void run(){
+        try{
+            for(int i=0;i<10;i++){
+                system.out.println("New thread created "+this);
+                Thread.sleep(1500);
+                
+            }
+        }
+        catch(Exeption e){
+            system.out.println("currently executing thread is interrrupted");
+        }
+        system.out.println("currently executing thread run is terminated");
+        
+    }
+}
