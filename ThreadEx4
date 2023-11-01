@@ -1,0 +1,19 @@
+class Main implements Runnable
+{
+	public static void main(String[] args) {
+	    Main t1 =new Main();
+	    Thread tc=new Thread(t1);
+	    tc.start();
+	     Main t2 =new Main();
+	    Thread ta=new Thread(t2);
+	    ta.start();
+	     Main t3 =new Main();
+	    Thread tb=new Thread(t3);
+	    tb.start();
+		System.out.println("This code is outside of the thread");
+	}
+	public void run()
+	{
+	   System.out.println("This code is runnig in the thread"); 
+	}
+}
