@@ -1,0 +1,43 @@
+class A
+{
+    public void fun(int n1,int n2,int n3){
+         if(n3%2==0){
+              for(int i=n1;i<=n2;i++){
+            if(i%2==0)
+                
+               	System.out.println(i);
+                
+              } 
+            }
+       
+        else {
+             for(int i=n1;i<=n2;i++){
+                 if(i%2==1)
+                     System.out.println(i);
+                 }
+             }
+        }
+        
+         }
+       
+    class B extends Thread{
+        A a=new A();
+        public void run(){
+            a.fun(10,20,6);
+        }
+    }
+     class C extends Thread{
+        A a=new A();
+        public void run(){
+            a.fun(10,20,1);
+        }
+    }
+    class Main{
+	public static void main(String[] args) {
+		B b=new B();
+		C c=new C();
+		b.start();
+		c.start();
+	}
+}
+
