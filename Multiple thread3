@@ -1,0 +1,60 @@
+//We will have 4 classes 
+class A
+{
+  static int BJP=0;
+  static int CONG=0;
+  public void vote(String s){
+      if(s=="BJP"){
+          BJP++;
+      }
+      else {
+          CONG++;
+      }
+  }
+ 
+  public static void Result(){
+      System.out.println ("BJP vote "+BJP);
+      System.out.println ("CONG vote "+CONG);
+      if(BJP>CONG){
+          System.out.println ("BJP won by "+(BJP-CONG)+" votes ");
+      }
+      else{
+           System.out.println ("CONG won by "+(CONG-BJP)+" votes ");
+      }
+  }
+}
+class B implements Runnable
+{
+  A a = new A ();
+  public void run ()
+  {
+    a.vote("BJP");
+  }
+}
+class C implements Runnable
+{
+  A a = new A ();
+  public void run ()
+  {
+    a.vote("CONG");
+  }
+}
+class Main
+{
+  public static void main (String[]args)
+  {
+    A a=new A() ; 
+    B b = new B ();
+    for(int i=0;i<150;i++)
+    {Thread t1=new Thread(new B());
+        t1.start ();
+    }
+    for(int i=0;i<140;i++){
+    Thread t2=new Thread(new C());
+      
+      t2.start ();
+        
+    }
+      a.Result();
+  }
+}
