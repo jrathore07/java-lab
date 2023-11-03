@@ -1,0 +1,55 @@
+//We will have 4 classes 
+class A
+{
+  static String Acc="88046BOI320";
+  static int Amount = 50000;
+  public static void Withdrawl (int n)
+  {
+    if (Amount > n)
+      {
+	Amount = Amount - n;
+	System.out.println ("remaining balance " + Amount);
+      }
+    else
+      {
+	System.out.println ("insufficient balance ");
+      }
+  }
+  public static void Deposit (int m)
+  {
+    Amount = Amount + m;
+    System.out.println ("After deposite " + Amount);
+  }
+
+
+}
+
+
+
+class B extends Thread
+{
+  A a = new A ();
+  public void run ()
+  {
+    a.Withdrawl (1000);
+  }
+}
+class C extends Thread
+{
+  A a = new A ();
+  public void run ()
+  {
+    a.Deposit (2000);
+  }
+}
+class Main
+{
+  public static void main (String[]args)
+  {
+      System.out.println ("acc.no. "+A.Acc);
+    B b = new B ();
+    C c = new C ();
+      b.start ();
+      c.start ();
+  }
+}
